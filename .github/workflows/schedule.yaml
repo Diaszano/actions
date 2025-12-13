@@ -6,6 +6,6 @@ on:
 
 jobs:
   gitleaks:
-    uses: Diaszano/actions/.github/workflows/gitleaks.yml@main
+    uses: Diaszano/actions/.github/workflows/gitleaks.yaml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
