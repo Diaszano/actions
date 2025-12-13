@@ -1,0 +1,11 @@
+name: Commit Check
+
+on:
+  pull_request:
+
+
+jobs:
+  commit-check:
+    uses: Diaszano/actions/actions/utils/commit/commit-check.yaml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
