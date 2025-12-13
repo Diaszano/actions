@@ -1,11 +1,72 @@
 name: Commit Check
 
 on:
-  pull_request:
+  workflow_call:
+    inputs:
+      message:
+        description: "Enable commit message validation."
+        required: false
+        default: true
+        type: boolean
 
+      branch:
+        description: "Enable branch name validation."
+        required: false
+        default: true
+        type: boolean
+
+      author-name:
+        description: "Enable committer/author name validation."
+        required: false
+        default: false
+        type: boolean
+
+      author-email:
+        description: "Enable committer/author email validation."
+        required: false
+        default: false
+        type: boolean
+
+      job-summary:
+        description: "Publish results to the GitHub Actions job summary."
+        required: false
+        default: true
+        type: boolean
+
+      pr-comments:
+        description: "Post results as Pull Request comments (requires pull-requests: write)."
+        required: false
+        default: false
+        type: boolean
+
+    secrets:
+      token:
+        description: "Optional token for PR comments. If omitted, uses the workflow token."
+        required: false
 
 jobs:
   commit-check:
-    uses: Diaszano/actions/actions/utils/commit/commit-check.yaml@main
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+    name: Run commit-check validations
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Validate commits and branches
+        uses: commit-check/commit-check-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.token || github.token }}
+        with:
+          message: ${{ inputs.message }}
+          branch: ${{ inputs.branch }}
+          author-name: ${{ inputs.author-name }}
+          author-email: ${{ inputs.author-email }}
+          job-summary: ${{ inputs.job-summary }}
+          pr-comments: ${{ inputs.pr-comments }}

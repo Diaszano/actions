@@ -1,0 +1,11 @@
+name: Check
+
+on:
+  pull_request:
+
+
+jobs:
+  commit-check:
+    uses: Diaszano/actions/.github/workflows/commit-check.yaml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
