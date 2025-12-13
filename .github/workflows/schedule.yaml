@@ -1,0 +1,11 @@
+name: Actions Schedule
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  gitleaks:
+    uses: Diaszano/actions/.github/workflows/gitleaks.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}

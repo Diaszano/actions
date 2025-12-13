@@ -5,6 +5,11 @@ on:
 
 
 jobs:
+  gitleaks:
+    uses: Diaszano/actions/.github/workflows/gitleaks.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
   commit-check:
     uses: Diaszano/actions/.github/workflows/commit-check.yaml@main
     secrets:
