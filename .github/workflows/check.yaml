@@ -9,3 +9,9 @@ jobs:
     uses: Diaszano/actions/.github/workflows/commit-check.yaml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
+
+  pre-commit:
+    uses: Diaszano/actions/.github/workflows/pre-commit.yaml@main
+    needs: commit-check
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
