@@ -8,10 +8,6 @@ on:
         required: false
         default: "3.13"
         type: string
-    secrets:
-      token:
-        description: "Optional token for PR comments. If omitted, uses the workflow token."
-        required: false
 
 jobs:
   pre-commit:
