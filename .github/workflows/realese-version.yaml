@@ -1,0 +1,13 @@
+name: Release Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-version:
+    name: Release Version
+    uses: Diaszano/actions/.github/workflows/release.yaml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
