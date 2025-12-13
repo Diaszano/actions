@@ -39,7 +39,6 @@ on:
 jobs:
   commit-check:
     uses: Diaszano/actions/.github/workflows/commit-check.yml@main
-    secrets: inherit
 ````
 
 ### Customizing inputs
@@ -61,7 +60,6 @@ jobs:
       author-email: false
       job-summary: true
       pr-comments: false
-    secrets: inherit
 ```
 
 > Replace `Diaszano/actions` and `main` with your repository coordinates (e.g., a tag like `v1`, `v1.2.0`, or a commit SHA).
