@@ -20,5 +20,3 @@ jobs:
 
   pre-commit:
     uses: Diaszano/actions/.github/workflows/pre-commit.yaml@main
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
