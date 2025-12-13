@@ -38,7 +38,7 @@ on:
 
 jobs:
   commit-check:
-    uses: Diaszano/actions/.github/workflows/commit-check.yml@main
+    uses: Diaszano/actions/actions/utils/commit/commit-check.yaml@main
 ````
 
 ### Customizing inputs
@@ -52,7 +52,7 @@ on:
 
 jobs:
   commit-check:
-    uses: Diaszano/actions/.github/workflows/commit-check.yml@main
+    uses: Diaszano/actions/actions/utils/commit/commit-check.yaml@main
     with:
       message: true
       branch: true
@@ -95,7 +95,7 @@ Example passing a custom token:
 ```yaml
 jobs:
   commit-check:
-    uses: Diaszano/actions/.github/workflows/commit-check.yml@main
+    uses: Diaszano/actions/actions/utils/commit/commit-check.yaml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
 ```
