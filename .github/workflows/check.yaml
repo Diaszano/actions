@@ -3,6 +3,9 @@ name: Check
 on:
   pull_request:
 
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   gitleaks:
@@ -12,11 +15,10 @@ jobs:
 
   commit-check:
     uses: Diaszano/actions/.github/workflows/commit-check.yaml@main
+    with:
+      pr-comments: true
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
 
   pre-commit:
     uses: Diaszano/actions/.github/workflows/pre-commit.yaml@main
-    needs: commit-check
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
