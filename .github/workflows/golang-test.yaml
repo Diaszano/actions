@@ -1,0 +1,38 @@
+name: Test Go Code
+description: Run tests on Go code using the specified Go version.
+
+on:
+  workflow_call:
+    inputs:
+      go-version-file:
+        description: "Name of the go.mod file to use."
+        required: false
+        default: "go.mod"
+        type: string
+    secrets:
+      CODECOV_TOKEN:
+        description: "Token for uploading coverage reports to Codecov."
+        required: true
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: ${{ inputs.go-version-file }}
+
+      - name: Run tests
+        run: make test-cov
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ${{ github.repository }}
