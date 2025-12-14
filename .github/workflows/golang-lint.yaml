@@ -34,6 +34,12 @@ jobs:
           go-version-file: ${{ inputs.go-version-file }}
 
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v9
-        with:
-          version: ${{ inputs.golangci-lint-version }}
+        id: format
+        run: |
+          if [ "$(go tool -modfile=golangci-lint.mod golangci-lint fmt -d | wc -l)" -gt 0 ]; then
+            echo "Golangci-lint found issues:";
+            go tool -modfile=golangci-lint.mod golangci-lint fmt -d;
+            exit 1;
+          else
+            echo "No issues found by golangci-lint.";
+          fi
