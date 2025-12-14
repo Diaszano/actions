@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/Diaszano/actions/compare/v1.3.0...v1.4.0) (2025-12-14)
+
+
+### Bug Fixes
+
+* update actions/checkout and actions/setup-node to version 6 in workflows ([73cafa6](https://github.com/Diaszano/actions/commit/73cafa60cbbabc0935d7dfcf98bb1963b721d162))
+* update default go-version-file to "go.mod" in workflows ([dcc38f1](https://github.com/Diaszano/actions/commit/dcc38f11d8905676e5c5a8d23938274918036eb9))
+
+
+### Features
+
+* add pre-commit workflow for Golang with Python setup ([85821e8](https://github.com/Diaszano/actions/commit/85821e87277045bcfbf491a8a31d2ab86bafaa79))
+
 # [1.3.0](https://github.com/Diaszano/actions/compare/v1.2.0...v1.3.0) (2025-12-14)
 
 
