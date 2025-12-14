@@ -1,0 +1,40 @@
+name: Golangci-lint Formatters
+description: Run golangci-lint with specific formatters to format Go code.
+
+on:
+  workflow_call:
+    inputs:
+      golangci-lint-version:
+        description: "Version of golangci-lint to use."
+        required: false
+        default: "v2.7.2"
+        type: string
+      go-mod:
+        description: "Name of the go.mod file to use."
+        required: false
+        default: "golangci-lint.mod"
+        type: string
+
+jobs:
+  format:
+    name: Run golangci-lint with formatters
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: ${{ inputs.go-mod }}
+
+      - name: Run golangci-lint with formatters
+        uses: golangci/golangci-lint-action@v9
+        with:
+          version: ${{ inputs.golangci-lint-version }}
+          args: fmt
