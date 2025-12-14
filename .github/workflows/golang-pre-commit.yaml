@@ -1,0 +1,43 @@
+name: Pre-commit for Golang
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        description: "Python version to use."
+        required: false
+        default: "3.13"
+        type: string
+      go-version-file:
+        description: "Name of the go.mod file to use."
+        required: false
+        default: "go.mod"
+        type: string
+
+jobs:
+  pre-commit:
+    name: Run pre-commit hooks
+    runs-on: ubuntu-latest
+
+    permissions:
+        contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+            python-version: ${{ inputs.python-version }}
+            check-latest: true
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: ${{ inputs.go-version-file }}
+
+      - name: Run pre-commit (all files)
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
