@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/Diaszano/actions/compare/v1.0.0...v1.1.0) (2025-12-14)
+
+
+### Features
+
+* add workflows for formatting and parsing Go code with golangci-lint ([60436e4](https://github.com/Diaszano/actions/commit/60436e4e21f67f157471a59a1bf21ac58649117f))
+* add workflows for golangci-lint formatters and linters ([8cd9c88](https://github.com/Diaszano/actions/commit/8cd9c88f1cad416a6d2b912f4b2ec0f26c964641))
+* add workflows for golangci-lint formatters and linters ([b8a5abe](https://github.com/Diaszano/actions/commit/b8a5abecd2de8117de2b4f69b43cf59f2923b195))
+
 # 1.0.0 (2025-12-13)
 
 
