@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/Diaszano/actions/compare/v1.4.1...v1.4.2) (2025-12-14)
+
+
+### Bug Fixes
+
+* replace golangci-lint action with inline script for better control over formatting process ([972421a](https://github.com/Diaszano/actions/commit/972421ae09c794b06145616ef6865dddb1b77d21))
+
 ## [1.4.1](https://github.com/Diaszano/actions/compare/v1.4.0...v1.4.1) (2025-12-14)
 
 
