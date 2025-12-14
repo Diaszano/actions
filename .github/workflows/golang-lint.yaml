@@ -12,7 +12,7 @@ on:
       go-version-file:
         description: "Name of the go.mod file to use."
         required: false
-        default: "golangci-lint.mod"
+        default: "go.mod"
         type: string
 
 jobs:
