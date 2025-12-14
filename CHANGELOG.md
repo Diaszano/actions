@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Diaszano/actions/compare/v1.4.2...v1.5.0) (2025-12-14)
+
+
+### Features
+
+* add workflow for testing Go code with coverage reporting ([3bc68b5](https://github.com/Diaszano/actions/commit/3bc68b50444a9e81277478f37ccaea74f7f9f665))
+
 ## [1.4.2](https://github.com/Diaszano/actions/compare/v1.4.1...v1.4.2) (2025-12-14)
 
 
