@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Diaszano/actions/compare/v1.1.0...v1.2.0) (2025-12-14)
+
+
+### Features
+
+* add workflow to format Go code with golangci-lint ([95d7077](https://github.com/Diaszano/actions/commit/95d70770ea5bc2f5f8c4e7e723be74b623fcc342))
+
 # [1.1.0](https://github.com/Diaszano/actions/compare/v1.0.0...v1.1.0) (2025-12-14)
 
 
